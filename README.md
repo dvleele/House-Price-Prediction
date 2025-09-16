@@ -50,3 +50,7 @@ Predicted vs Actual Prices (Random Forest)
 - Training and evaluating regression models 
 - Comparing linear vs non-linear models
 - Visualizing results
+<img width="642" height="551" alt="image" src="https://github.com/user-attachments/assets/9ff57ad0-b23b-472e-ab84-e6f7dc810af4" />
+
+<img width="1066" height="194" alt="image" src="https://github.com/user-attachments/assets/c77b421a-fd38-434a-9167-191092dbbc57" />
+
