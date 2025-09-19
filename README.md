@@ -1,6 +1,6 @@
-# 🏠 House Price Prediction
+# House Price Prediction
 
-## 📌 Overview
+## Overview
 This project predicts house prices using the **Kaggle House Prices dataset**.  
 
 We implemented and compared **8 regression models**:
@@ -16,7 +16,7 @@ The goal is to practice an **end-to-end Machine Learning pipeline**:
 
 ---
 
-## 📂 Dataset
+## Dataset
 - **Source**: [Kaggle – House Prices: Advanced Regression Techniques](https://www.kaggle.com/c/house-prices-advanced-regression-techniques)  
 - **Shape**: `1460 rows × 81 columns`  
 - **Target**: `SalePrice` (house price in USD)  
@@ -72,5 +72,5 @@ Model performance comparison:
 
 ---
 
-👨‍💻 Author: Le Chi Dinh
-🎯 Purpose: Practice project for **Machine Learning portfolio**
+Author: Le Chi Dinh
+Purpose: Practice project for **Machine Learning portfolio**
