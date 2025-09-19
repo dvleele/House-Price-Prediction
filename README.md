@@ -38,28 +38,12 @@ The goal is to practice an **end-to-end Machine Learning pipeline**:
 
 ---
 
-## Results
-
-| Model              |   RMSE    |   R²    |
-|--------------------|-----------|---------|
-| Random Forest      | 29,478    | 0.887   |
-| Gradient Boosting  | 29,902    | 0.883   |
-| Decision Tree      | 37,130    | 0.820   |
-| Linear Regression  | 40,051    | 0.799   |
-| Lasso              | 40,051    | 0.799   |
-| Ridge              | 40,055    | 0.799   |
-| ElasticNet         | 40,078    | 0.799   |
-| SVR                | 79,482    | 0.176   |
-
-**Best models**: Random Forest & Gradient Boosting  
-**Worst model**: SVR (did not generalize well)
-
----
-
 Model performance comparison:
 
 <img width="389" height="191" alt="image" src="https://github.com/user-attachments/assets/959464bb-b90c-4530-af56-b906ef7c7be8" />
 
+**Best models**: Random Forest & Gradient Boosting  
+**Worst model**: SVR (did not generalize well)
 
 ---
 
