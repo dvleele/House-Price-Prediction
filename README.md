@@ -56,5 +56,5 @@ Model performance comparison:
 
 ---
 
-Author: Le Chi Dinh
-Purpose: Practice project for **Machine Learning portfolio**
+- Author: Le Chi Dinh
+- Purpose: Practice project for **Machine Learning portfolio**
