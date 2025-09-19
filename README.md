@@ -31,7 +31,7 @@ The goal is to practice an **end-to-end Machine Learning pipeline**:
 ---
 
 ## ⚙️ Tech Stack
-- Python 3.11+  
+- Python 3.13.5
 - Pandas, NumPy  
 - Matplotlib, Seaborn  
 - Scikit-learn (linear models, tree-based models, ensemble methods)  
