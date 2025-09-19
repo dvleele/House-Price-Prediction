@@ -3,43 +3,65 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_squared_error, r2_score
 
-# 1. Load data
+# Models
+from sklearn.linear_model import LinearRegression, Ridge, Lasso, ElasticNet
+from sklearn.svm import SVR
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+
+# ---------------------------------------
+#               Load data
 df = pd.read_csv('../data/train.csv')
 print(df.head())
 
-# 2. Select features
+# Select features
 features = ["OverallQual", "GrLivArea", "GarageCars", "TotalBsmtSF", "FullBath"]
 X = df[features].fillna(0)
 y = df["SalePrice"]
 
-# 3. Train-test split
+# Train-test split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# 4. Train models
-lr = LinearRegression()
-lr.fit(X_train, y_train)
-y_pred_lr = lr.predict(X_test)
+# Scale features
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
 
-rf = RandomForestRegressor(n_estimators=100, random_state=42)
-rf.fit(X_train, y_train)
-y_pred_rf = rf.predict(X_test)
+# ---------------------------------------
+#                Models
+models = {
+    "Linear Regression": LinearRegression(),
+    "Ridge": Ridge(alpha=1.0),
+    "Lasso": Lasso(alpha=0.01),
+    "ElasticNet": ElasticNet(alpha=0.01, l1_ratio=0.5),
+    "SVR": SVR(kernel='rbf', C=100, gamma=0.1, epsilon=.1),
+    "Decision Tree": DecisionTreeRegressor(max_depth=5),
+    "Random Forest": RandomForestRegressor(n_estimators=100, random_state=42),
+    "Gradient Boosting": GradientBoostingRegressor(n_estimators=100, learning_rate=0.1, random_state=42)
+}
 
+# ---------------------------------------
+#                Train + Evaluate
 
-# 5. Evaluate
-def evaluate(y_true, y_pred, model_name):
-    rmse = np.sqrt(mean_squared_error(y_true, y_pred))
-    r2 = r2_score(y_true, y_pred)
-    print(f"{model_name} -> RMSE: {rmse:.2f}, R²: {r2:.2f}")
+results = []
 
-evaluate(y_test, y_pred_lr, "Linear Regression")
-evaluate(y_test, y_pred_rf, "Random Forest")
+for name, model in models.items():
+    if name in ["LinearRegression", "Ridge", "Lasso", "ElasticNet", "SVR"]:
+        model.fit(X_train_scaled, y_train)
+        y_pred = model.predict(X_test_scaled)
+    else:
+        model.fit(X_train, y_train)
+        y_pred = model.predict(X_test)
 
-plt.scatter(y_test, y_pred_rf, alpha=0.5)
-plt.xlabel("Actual Prices")
-plt.ylabel("Predicted Prices")
-plt.title("Random Forest Predictions")
-plt.show()
+    rmse = np.sqrt(mean_squared_error(y_test, y_pred))
+    r2 = r2_score(y_test, y_pred)
+    results.append([name, rmse, r2])
+
+# ---------------------------------------
+#                Run
+
+df_results = pd.DataFrame(results, columns=["Model", "RMSE", "R2"])
+print(df_results.sort_values(by="RMSE"))
