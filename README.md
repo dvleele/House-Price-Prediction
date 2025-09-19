@@ -1,56 +1,80 @@
-🏠 House Price Prediction
-📌 Overview
+# 🏠 House Price Prediction
 
-This project predicts house prices using the Kaggle House Prices dataset.
-We compare two models:
-- Linear Regression (baseline)
-- Random Forest Regressor (non-linear, ensemble method)
-The goal is to practice an end-to-end Machine Learning pipeline:
-data preprocessing → model training → evaluation → visualization.
+## 📌 Overview
+This project predicts house prices using the **Kaggle House Prices dataset**.  
 
-📂 Dataset
+We implemented and compared **8 regression models**:
+- Linear Regression
+- Ridge, Lasso, ElasticNet
+- Support Vector Regression (SVR)
+- Decision Tree Regressor
+- Random Forest Regressor
+- Gradient Boosting Regressor
 
-Source: Kaggle – House Prices: Advanced Regression Techniques
+The goal is to practice an **end-to-end Machine Learning pipeline**:  
+`data preprocessing → model training → evaluation → visualization`
 
-Shape: 1460 rows × 81 columns
+---
 
-Target: SalePrice (house price in USD)
+## 📂 Dataset
+- **Source**: [Kaggle – House Prices: Advanced Regression Techniques](https://www.kaggle.com/c/house-prices-advanced-regression-techniques)  
+- **Shape**: `1460 rows × 81 columns`  
+- **Target**: `SalePrice` (house price in USD)  
 
-Selected features (for baseline):
+**Selected features (for baseline):**
+- `OverallQual` – Overall material and finish quality  
+- `GrLivArea` – Above ground living area (sq ft)  
+- `GarageCars` – Number of cars garage can fit  
+- `TotalBsmtSF` – Basement area (sq ft)  
+- `FullBath` – Number of full bathrooms  
 
-- OverallQual – Overall material and finish quality
+---
 
-- GrLivArea – Above ground living area (sq ft)
+## ⚙️ Tech Stack
+- Python 3.11+  
+- Pandas, NumPy  
+- Matplotlib, Seaborn  
+- Scikit-learn (linear models, tree-based models, ensemble methods)  
 
-- GarageCars – Number of cars that can fit in garage
+---
 
-- TotalBsmtSF – Basement area (sq ft)
+## 📊 Results
 
-- FullBath – Number of full bathrooms
+| Model              |   RMSE    |   R²    |
+|--------------------|-----------|---------|
+| Random Forest      | 29,478    | 0.887   |
+| Gradient Boosting  | 29,902    | 0.883   |
+| Decision Tree      | 37,130    | 0.820   |
+| Linear Regression  | 40,051    | 0.799   |
+| Lasso              | 40,051    | 0.799   |
+| Ridge              | 40,055    | 0.799   |
+| ElasticNet         | 40,078    | 0.799   |
+| SVR                | 79,482    | 0.176   |
 
-⚙️ Tech Stack
-- Python 3.15.5
-- Pandas, NumPy
-- Matplotlib, Seaborn
-- Scikit-learn (LinearRegression, RandomForestRegressor)
+✅ **Best models**: Random Forest & Gradient Boosting  
+❌ **Worst model**: SVR (did not generalize well)
 
-📊 Results
-Model	             |  RMSE   | 	R²
-Linear Regression	 | ~40,051 |	0.79
-Random Forest	     | ~29,478 | 0.89
+---
 
-✅ Random Forest outperforms Linear Regression.
+## 📈 Visualizations
+Predicted vs Actual Prices (Random Forest):
 
-📈 Visualizations
-Predicted vs Actual Prices (Random Forest)
+![Random Forest Predictions](results/random_forest.png)
 
-📚 Lessons Learned
-- Handling missing values 
-- Feature selection & encoding 
-- Training and evaluating regression models 
-- Comparing linear vs non-linear models
-- Visualizing results
-<img width="642" height="551" alt="image" src="https://github.com/user-attachments/assets/9ff57ad0-b23b-472e-ab84-e6f7dc810af4" />
+Model performance comparison:
 
-<img width="1066" height="194" alt="image" src="https://github.com/user-attachments/assets/c77b421a-fd38-434a-9167-191092dbbc57" />
+![Model Comparison](results/model_comparison.png)
 
+---
+
+## 📚 Lessons Learned
+- How to preprocess tabular data (missing values, feature selection)  
+- Training and evaluating multiple regression models  
+- Understanding the difference between **linear vs non-linear models**  
+- Ensemble methods (Random Forest, Gradient Boosting) often outperform single models  
+- Importance of RMSE and R² in regression evaluation  
+
+---
+
+👨‍💻 Author: Le Chi Dinh
+🎯 Purpose: Practice project for **Machine Learning portfolio**
