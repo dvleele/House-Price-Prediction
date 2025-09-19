@@ -38,7 +38,7 @@ The goal is to practice an **end-to-end Machine Learning pipeline**:
 
 ---
 
-## 📊 Results
+## Results
 
 | Model              |   RMSE    |   R²    |
 |--------------------|-----------|---------|
@@ -51,23 +51,19 @@ The goal is to practice an **end-to-end Machine Learning pipeline**:
 | ElasticNet         | 40,078    | 0.799   |
 | SVR                | 79,482    | 0.176   |
 
-✅ **Best models**: Random Forest & Gradient Boosting  
-❌ **Worst model**: SVR (did not generalize well)
+**Best models**: Random Forest & Gradient Boosting  
+**Worst model**: SVR (did not generalize well)
 
 ---
-
-## 📈 Visualizations
-Predicted vs Actual Prices (Random Forest):
-
-![Random Forest Predictions](results/random_forest.png)
 
 Model performance comparison:
 
-![Model Comparison](results/model_comparison.png)
+<img width="389" height="191" alt="image" src="https://github.com/user-attachments/assets/959464bb-b90c-4530-af56-b906ef7c7be8" />
+
 
 ---
 
-## 📚 Lessons Learned
+## Lessons Learned
 - How to preprocess tabular data (missing values, feature selection)  
 - Training and evaluating multiple regression models  
 - Understanding the difference between **linear vs non-linear models**  
