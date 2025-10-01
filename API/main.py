@@ -2,9 +2,13 @@ from fastapi import FastAPI
 import joblib
 import numpy as np
 from pydantic import BaseModel
+import os
 
 # Load model
-model = joblib.load("../src/house_price_model.pkl")
+model_path = os.path.join(os.path.dirname(__file__), "..", "src", "house_price_model.pkl")
+model_path = os.path.abspath(model_path)
+
+model = joblib.load(model_path)
 
 app = FastAPI()
 
