@@ -29,16 +29,16 @@ The goal is to practice an **end-to-end Machine Learning pipeline**:
 - `FullBath` – Number of full bathrooms  
 
 ---
-
-## ⚙️ Tech Stack
+##  Tech Stack
 - Python 3.13.5
 - Pandas, NumPy  
 - Matplotlib, Seaborn  
 - Scikit-learn (linear models, tree-based models, ensemble methods)  
+- Docker (containerization)
+- Render (deploy)
 
 ---
-
-Model performance comparison:
+## Model performance comparison:
 
 <img width="389" height="191" alt="image" src="https://github.com/user-attachments/assets/959464bb-b90c-4530-af56-b906ef7c7be8" />
 
@@ -46,13 +46,39 @@ Model performance comparison:
 **Worst model**: SVR (did not generalize well)
 
 ---
+## API (FastAPI)
+The trained model is wrapped inside a FastAPI service
+---
 
+## Docker
+We containerized the API for easier deployment.
+
+---
+## Deployment (Render)
+
+We deployed the Docker container to Render (free tier).
+- Deployment service: Docker Web Service
+- Platform: Render
+
+---
+## How to Test the API
+- URL API: https://house-price-prediction-6c9b.onrender.com/docs
+Steps to test:
+1. Open the Swagger UI link above in your browser.
+2. You will see all available endpoints.
+3. Select POST /predict (the prediction endpoint).
+4. Click "Try it out".
+5. Enter sample JSON input (example below):
+![](<Screenshot 2025-10-02 222725.png>)
+![](<Screenshot 2025-10-02 222740.png>)
+
+---
 ## Lessons Learned
 - How to preprocess tabular data (missing values, feature selection)  
 - Training and evaluating multiple regression models  
-- Understanding the difference between **linear vs non-linear models**  
-- Ensemble methods (Random Forest, Gradient Boosting) often outperform single models  
-- Importance of RMSE and R² in regression evaluation  
+- Wrapping ML models into REST API with FastAPI
+- Dockerizing ML applications for portability
+- Deploying containerized apps to cloud platforms (Render)
 
 ---
 
