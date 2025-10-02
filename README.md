@@ -47,16 +47,15 @@ The goal is to practice an **end-to-end Machine Learning pipeline**:
 
 ---
 ## API (FastAPI)
-The trained model is wrapped inside a FastAPI service
----
+- The trained model is wrapped inside a FastAPI service
 
+---
 ## Docker
-We containerized the API for easier deployment.
+- We containerized the API for easier deployment.
 
 ---
 ## Deployment (Render)
-
-We deployed the Docker container to Render (free tier).
+- We deployed the Docker container to Render (free tier).
 - Deployment service: Docker Web Service
 - Platform: Render
 
@@ -69,7 +68,9 @@ Steps to test:
 3. Select POST /predict (the prediction endpoint).
 4. Click "Try it out".
 5. Enter sample JSON input (example below):
-![](<Screenshot 2025-10-02 222725.png>)
+6. 
+![](<Screenshot 2025-10-02 222725.png>)\
+
 ![](<Screenshot 2025-10-02 222740.png>)
 
 ---
