@@ -3,6 +3,7 @@ import joblib
 import numpy as np
 from pydantic import BaseModel
 import os
+import uvicorn
 
 # Load model
 model_path = os.path.join(os.path.dirname(__file__), "..", "src", "house_price_model.pkl")
@@ -28,5 +29,4 @@ def predict_price(features: HouseFeatures):
     return {"predicted_price": prediction}
 
 if __name__ == "__main__":
-    import uvicorn
     uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
